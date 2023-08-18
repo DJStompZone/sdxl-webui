@@ -14,9 +14,8 @@ from share_btn import community_icon_html, loading_icon_html, share_js
 
 # SDXL code: https://github.com/huggingface/diffusers/pull/3859
 
-SHARE_PORT = int(os.environ.get("SHARE_PORT")
-if not SHARE_PORT:
-    SHARE_PORT = 4269
+SHARE_PORT = os.environ.get("SHARE_PORT")
+SHARE_PORT = 4269 if not SHARE_PORT else int(SHARE_PORT)
     
 model_dir = os.getenv("SDXL_MODEL_DIR")
 
