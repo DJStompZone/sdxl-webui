@@ -14,6 +14,8 @@ from share_btn import community_icon_html, loading_icon_html, share_js
 
 # SDXL code: https://github.com/huggingface/diffusers/pull/3859
 
+SHARE_PORT = int(os.environ.get("SHARE_PORT") if SHARE_PORT is not None else 4269)
+    
 model_dir = os.getenv("SDXL_MODEL_DIR")
 
 if model_dir:
@@ -452,4 +454,4 @@ Despite how impressive being able to turn text into image is, beware to the fact
                 """
             )
 
-block.queue().launch(share=share)
+block.queue().launch(share=True, server_port=SHARE_PORT)
